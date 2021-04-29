@@ -8,7 +8,7 @@ use \Illuminate\Http\JsonResponse;
 class Matrix
 {
     /**
-     * The function checkMatrixColumn is checking if a matrix has the same column sizes & checks if the matrix consists only of integers/ numbers
+     * The function checkMatrixColumn is checking if a matrix has the same column sizes & checks
      *
      * @param array $matrix / 2 dimensional array
      * @return boolean / returns true false
@@ -31,7 +31,7 @@ class Matrix
      * @param array $matrix_two stands for the second matrix
      * @return boolean / returns true false
      */
-    public static function columnEqualRow(array $matrix_one, array $matrix_two): bool
+    public static function isColumnEqualRow(array $matrix_one, array $matrix_two): bool
     {
         return sizeOf($matrix_one) === sizeOf($matrix_two[0]);
     }
@@ -64,9 +64,9 @@ class Matrix
     public static function matrixToAlphabet(array $matrix): array
     {
         $result = [];
-        foreach ($matrix as $keyR => $row) {
-            foreach ($row as $keyC => $column) {
-                $result[$keyR][$keyC] = self::integerToChar($column);
+        foreach ($matrix as $key_row => $value_row) {
+            foreach ($value_row as $key_column => $value_column) {
+                $result[$key_row][$key_column] = self::integerToChar($value_column);
             }
         }
         return $result;

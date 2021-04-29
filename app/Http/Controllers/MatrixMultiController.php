@@ -30,7 +30,7 @@ class MatrixMultiController extends Controller
             ], 400);
         }
 
-        if (!Matrix::columnEqualRow($matrix_one, $matrix_two)) {
+        if (!Matrix::isColumnEqualRow($matrix_one, $matrix_two)) {
             return response()->json([
                 "status" => "error",
                 "message" => "Bad Request: the column count in the first matrix is not equal to the row count of the second matrix"
