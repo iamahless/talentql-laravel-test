@@ -19,8 +19,10 @@ class VerifyApiKey
     {
         $key = $request->key;
         if ($key !== env('API_AUTH_KEY') || is_null($key)) {
-            $response = ["http_response" => 401, ["error" => "Unauthenticated", "message" => "the api key is wrong/not set"]];
-            return json_encode($response, JSON_THROW_ON_ERROR);
+            return response()->json([
+                "status" => "error",
+                "message" => "Unauthenticated: Key is invalid"
+            ], 401);
         }
         return $next($request);
     }
